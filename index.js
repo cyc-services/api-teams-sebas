@@ -37,6 +37,9 @@ app.post('/crear-reunion', async (req, res) => {
             startDateTime: new Date().toISOString(),
             endDateTime: new Date(Date.now() + 60 * 60000).toISOString(), 
             subject: asunto || "Reunión de Soporte",
+            lobbyBypassSettings: {
+                scope: "everyone"
+            }
         };
 
         const meeting = await graphClient
